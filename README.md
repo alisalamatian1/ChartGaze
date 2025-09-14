@@ -1,36 +1,61 @@
-# ChartGaze
+# 📊👀 ChartGaze: Eye-Tracking Guided Attention for Chart Understanding
 
-- Paper link:
+This repository contains the official code for the paper: **"ChartGaze: Enhancing Chart Understanding in LVLMs with Eye-Tracking Guided Attention Refinement"**.
 
-- Dataset link:
+We introduce a novel attention refinement method and a new eye-tracking dataset to improve the performance and interpretability of Large Vision-Language Models (LVLMs) on chart question answering (CQA). Our approach aligns model attention with human gaze patterns, leading to performance gains on non-instruction-tuned models.
 
-## Current Structure
-- models folder:
-    - ChartGemma
-    - TinyLLaVA
-        - my_modelling
-        - my_scripts
-        - tinyllava
+| Paper Link 📄 | Dataset Link 📊 |
+| :--- | :--- |
+| [TODO]| [https://huggingface.co/datasets/alisalam/ChartGaze](https://huggingface.co/datasets/alisalam/ChartGaze) |
 
-After you download our dataset and the models, the structure should look like:
-- models:
-    - ChartGemma
-        - model
-    - TinyLLaVA
-        - my_modelling: put the downloaded model.safetensors under TinyLLaVA-OpenELM-450M-SigLIP-0.89B_wAttn
-        - my scripts
-        - tinyllava
-- data
-    - train
-        - attn_maps
-        - images
-        - data.json
-    - val 
-        - attn_maps
-        - images
-        - data.json
+---
 
-## How to set up
-You need to first download each of the models. For Tinyllava refer to: https://github.com/TinyLLaVA/TinyLLaVA_Factory?tab=readme-ov-file (we used the 450M model).
-For ChartGemma, refer to: https://github.com/vis-nlp/ChartGemma
-Once you download the model and dataset and put them in the right location, you can use the ChartGaze/models/TinyLLaVA/my_scripts/lora_finetune_human_wAttn.sh script and ChartGaze/models/ChartGemma/finetune.py to finetune TinyLLaVA and ChartGemma on our data.
+### 📂 Repository Structure
+After downloading the dataset and models, please ensure your directory is structured as follows:
+
+- `ChartGaze/`
+  - `models/`
+    - `ChartGemma/`
+      - `model/`
+      - `finetune.py`
+    - `TinyLLaVA/`
+      - `my_modelling/`
+        - `TinyLLaVA-OpenELM-450M-SigLIP-0.89B_wAttn/`
+          - `model.safetensors`  
+      - `my_scripts/`
+        - `lora_finetune_human_wAttn.sh`
+      - `tinyllava/`
+  - `data/`
+    - `train/`
+      - `attn_maps/`
+      - `images/`
+      - `data.json`
+    - `val/`
+      - `attn_maps/`
+      - `images/`
+      - `data.json`
+
+---
+
+### 🚀 Setup and Finetuning
+Follow these steps to set up the project and finetune the models:
+
+1.  **Download Models**:
+    * **TinyLLaVA**: Download the **450M model** from the official repository: [https://github.com/TinyLLaVA/TinyLLaVA_Factory](https://github.com/TinyLLaVA/TinyLLaVA_Factory?tab=readme-ov-file)
+    * **ChartGemma**: Download the model from its official repository: [https://github.com/vis-nlp/ChartGemma](https://github.com/vis-nlp/ChartGemma)
+
+2.  **Download Dataset**:
+    * Our dataset is available on Hugging Face: [https://huggingface.co/datasets/alisalam/ChartGaze](https://huggingface.co/datasets/alisalam/ChartGaze)
+
+3.  **Organize Files**:
+    * Place the downloaded models and dataset into the directory structure shown above.
+
+4.  **Run Finetuning Scripts**:
+    * To finetune **TinyLLaVA**, execute:
+        ```bash
+        ChartGaze/models/TinyLLaVA/my_scripts/lora_finetune_human_wAttn.sh
+        ```
+    * To finetune **ChartGemma**, run:
+        ```bash
+        ChartGaze/models/ChartGemma/finetune.py
+        ```
