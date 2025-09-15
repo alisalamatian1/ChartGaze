@@ -25,6 +25,8 @@ After downloading the dataset and models, please ensure your directory is struct
       - `my_scripts/`
         - `lora_finetune_human_wAttn.sh`
       - `tinyllava/`
+    - `InternVL/`
+
   - `data/`
     - `train/`
       - `attn_maps/`
@@ -46,7 +48,9 @@ Follow these steps to set up the project and finetune the models:
 
 2.  **Download Dataset**:
     * Our dataset is available on Hugging Face: [https://huggingface.co/datasets/alisalam/ChartGaze](https://huggingface.co/datasets/alisalam/ChartGaze)
-
+    
+      Note that to make things easier, you can just download the train and val folders here: https://huggingface.co/datasets/alisalam/ChartGaze/tree/main/data
+    
 3.  **Organize Files**:
     * Place the downloaded models and dataset into the directory structure shown above.
 
@@ -59,3 +63,4 @@ Follow these steps to set up the project and finetune the models:
         ```bash
         ChartGaze/models/ChartGemma/finetune.py
         ```
+    * To finetune **InternVL**, please take a look at the README.md file under the models/InternVL folder

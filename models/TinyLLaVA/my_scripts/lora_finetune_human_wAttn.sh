@@ -23,7 +23,7 @@ MODEL_MAX_LENGTH=2
 CONV_MODE="llama" # depending on the model used, it can be llama or phi ...
 
 LORA_SIGLIP="lora-finetune-TinyLLaVA-OpenELM-450M-SigLIP-0.89B"
-EXP_NAME="S1_K0_${EPOCHS}epoch_guided_${GUIDED_ATTN}_seed2002_non_binary"
+EXP_NAME="${EPOCHS}epoch_guided_${GUIDED_ATTN}_seed2002"
 OUTPUT_DIR="OUTPUTS/${LORA_SIGLIP}_${EXP_NAME}"
 
 echo "=================================================="
@@ -52,7 +52,7 @@ deepspeed --include localhost:0 --master_port 29502 tinyllava/train/custom_finet
     --lora_r 32 \
     --lora_alpha 64 \
     --group_by_modality_length False \
-    --pretrained_model_path "my_modeling/TinyLLaVA-OpenELM-450M-SigLIP-0.89B_wAttn" \
+    --pretrained_model_path "models/TinyLLaVA/my_modeling/TinyLLaVA-OpenELM-450M-SigLIP-0.89B_wAttn" \
     --output_dir $OUTPUT_DIR \
     --num_train_epochs $EPOCHS \
     --per_device_train_batch_size 4 \
