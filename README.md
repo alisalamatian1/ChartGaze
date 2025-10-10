@@ -3,7 +3,7 @@
 <p align="center">
   <br>
   <a href="https://arxiv.org/pdf/2509.13282"><img alt="Paper" src="https://img.shields.io/badge/📃-Paper-808080"></a>
-  <a href="https://huggingface.co/datasets/alisalam/ChartGaze"><img alt="Huggingface" src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Benchmark-yellow"></a>
+  <a href="https://huggingface.co/datasets/alisalam/ChartGaze"><img alt="Huggingface" src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Dataset-yellow"></a>
 </p>
 
 This repository contains the official code for the paper: **"ChartGaze: Enhancing Chart Understanding in LVLMs with Eye-Tracking Guided Attention Refinement"**.
