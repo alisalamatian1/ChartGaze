@@ -30,7 +30,7 @@ def parse_args():
     return parser.parse_args()
 
 
-def load_trained_model(model_path, base_model_name="OpenGVLab/InternVL-8B"):
+def load_trained_model(model_path, base_model_name="OpenGVLab/InternVL2-8B"):
     """Load the trained model from checkpoint."""
     print(f"Loading model from {model_path}")
     

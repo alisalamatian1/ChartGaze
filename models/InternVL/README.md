@@ -31,7 +31,7 @@ pip install bitsandbytes  # For QLoRA support
 
 ```bash
 python train.py \
-    --model_name_or_path "OpenGVLab/InternVL-8B" \
+    --model_name_or_path "OpenGVLab/InternVL2-8B" \
     --image_path "./data/images" \
     --gaze_path "./data/gaze_maps" \
     --output_dir "./output" \

@@ -1,0 +1,20 @@
+# Core dependencies
+torch>=2.0.0
+torchvision>=0.15.0
+transformers>=4.40.0
+peft>=0.10.0
+accelerate>=0.27.0
+bitsandbytes>=0.43.0
+
+# Data processing
+numpy>=1.24.0
+pillow>=9.0.0
+
+# Evaluation and visualization
+matplotlib>=3.7.0
+scipy>=1.10.0
+scikit-learn>=1.2.0
+
+# Optional but recommended
+sentencepiece>=0.1.99
+protobuf>=3.20.0

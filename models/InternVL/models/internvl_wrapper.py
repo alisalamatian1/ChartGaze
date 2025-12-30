@@ -9,7 +9,7 @@ def load_internvl_model(model_name_or_path, qlora=True):
     return InternVLWrapper(model_name_or_path, qlora=qlora)
 
 class InternVLWrapper(nn.Module):
-    def __init__(self, model_name="OpenGVLab/InternVL-8B", qlora=True):
+    def __init__(self, model_name="OpenGVLab/InternVL2-8B", qlora=True):
         super().__init__()
         self.model_name = model_name
         self.qlora = qlora
