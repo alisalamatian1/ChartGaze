@@ -1,7 +1,6 @@
 import torch
 from torch import nn
-from transformers import AutoTokenizer, AutoProcessor, BitsAndBytesConfig
-from transformers.models.internvl.modeling_internvl import InternVLForConditionalGeneration
+from transformers import AutoTokenizer, AutoProcessor, AutoModel, BitsAndBytesConfig
 from peft import get_peft_model, prepare_model_for_kbit_training, LoraConfig, TaskType
 
 def load_internvl_model(model_name_or_path, qlora=True):
@@ -21,10 +20,12 @@ class InternVLWrapper(nn.Module):
                 bnb_4bit_quant_type="nf4",
                 bnb_4bit_compute_dtype=torch.bfloat16,
             )
-            model = InternVLForConditionalGeneration.from_pretrained(
+            model = AutoModel.from_pretrained(
                 model_name,
                 quantization_config=bnb_config,
-                device_map="auto"
+                device_map="auto",
+                trust_remote_code=True,
+                torch_dtype=torch.bfloat16,
             )
             model = prepare_model_for_kbit_training(model)
             peft_config = LoraConfig(
@@ -37,8 +38,11 @@ class InternVLWrapper(nn.Module):
             )
             self.model = get_peft_model(model, peft_config)
         else:
-            self.model = InternVLForConditionalGeneration.from_pretrained(
-                model_name, torch_dtype=torch.bfloat16, device_map="auto"
+            self.model = AutoModel.from_pretrained(
+                model_name, 
+                torch_dtype=torch.bfloat16, 
+                device_map="auto",
+                trust_remote_code=True,
             )
 
         self.tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
