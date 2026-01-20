@@ -31,7 +31,7 @@ class InternVLWrapper(nn.Module):
             peft_config = LoraConfig(
                 r=64,
                 lora_alpha=16,
-                target_modules=["q_proj", "k_proj", "v_proj", "o_proj"],
+                target_modules=["wqkv", "wo", "w1", "w2", "w3"],
                 lora_dropout=0.1,
                 bias="none",
                 task_type=TaskType.CAUSAL_LM,
