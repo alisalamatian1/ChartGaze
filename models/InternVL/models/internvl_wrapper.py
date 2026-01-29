@@ -186,9 +186,9 @@ class InternVLWrapper(nn.Module):
         # Find positions of image context tokens
         img_token_mask = (input_ids == self.img_context_token_id)
         
-        # Get attention from last N layers (usually more semantic)
+        # Get attention from first N layers
         num_layers_to_use = min(12, len(attentions))
-        selected_attentions = attentions[-num_layers_to_use:]
+        selected_attentions = attentions[:num_layers_to_use]
         
         batch_size = input_ids.shape[0]
         attn_maps = []
